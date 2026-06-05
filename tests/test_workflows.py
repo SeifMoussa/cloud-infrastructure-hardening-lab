@@ -34,6 +34,8 @@ def test_ci_workflow_uses_python_312_and_coverage_gate() -> None:
 def test_codeql_workflow_analyzes_python_with_security_quality_queries() -> None:
     workflow = load_workflow(".github/workflows/codeql.yml")
     serialized = str(workflow)
+    supported_init_versions = {"github/codeql-action/init@v3", "github/codeql-action/init@v4"}
+    supported_analyze_versions = {"github/codeql-action/analyze@v3", "github/codeql-action/analyze@v4"}
 
     assert workflow["on"]["push"]["branches"] == ["main"]
     assert workflow["on"]["pull_request"]["branches"] == ["main"]
@@ -41,8 +43,8 @@ def test_codeql_workflow_analyzes_python_with_security_quality_queries() -> None
     assert "workflow_dispatch" in workflow["on"]
     assert "languages': 'python'" in serialized
     assert "queries': 'security-and-quality'" in serialized
-    assert "github/codeql-action/init@v3" in serialized
-    assert "github/codeql-action/analyze@v3" in serialized
+    assert any(version in serialized for version in supported_init_versions)
+    assert any(version in serialized for version in supported_analyze_versions)
 
 
 def test_dependabot_uses_weekly_pip_and_actions_updates_without_docker() -> None:
