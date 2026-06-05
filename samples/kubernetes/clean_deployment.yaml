@@ -1,0 +1,29 @@
+synthetic-lab: true
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: synthetic-clean-deployment
+  namespace: lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: synthetic-clean-app
+  template:
+    metadata:
+      labels:
+        app: synthetic-clean-app
+    spec:
+      containers:
+        - name: lab-container
+          image: lab.example.com/synthetic/app:latest
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+            requests:
+              cpu: "250m"
+              memory: "128Mi"
+          securityContext:
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false

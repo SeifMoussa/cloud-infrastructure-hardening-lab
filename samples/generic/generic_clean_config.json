@@ -1,0 +1,13 @@
+{
+  "synthetic-lab": true,
+  "description": "Synthetic clean generic cloud configuration sample for offline defensive review.",
+  "account_id": "123456789012",
+  "resource": {
+    "type": "storage",
+    "name": "lab-clean-bucket",
+    "owner": "service-user",
+    "public_access": false,
+    "encryption_enabled": true,
+    "logging_enabled": true
+  }
+}

@@ -1,0 +1,10 @@
+synthetic-lab: true
+description: Synthetic public database sample for offline defensive review.
+account_id: "123456789012"
+Resources:
+  SyntheticDatabase:
+    Type: Synthetic::Database::Instance
+    Properties:
+      Name: synthetic-db
+      PubliclyAccessible: true
+      EndpointDomain: lab.example.com

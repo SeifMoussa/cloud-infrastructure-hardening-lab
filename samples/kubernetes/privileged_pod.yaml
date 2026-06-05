@@ -1,0 +1,14 @@
+synthetic-lab: true
+apiVersion: v1
+kind: Pod
+metadata:
+  name: synthetic-privileged-pod
+  namespace: lab
+  labels:
+    owner: analyst-user
+spec:
+  containers:
+    - name: lab-container
+      image: lab.example.com/synthetic/app:latest
+      securityContext:
+        privileged: true

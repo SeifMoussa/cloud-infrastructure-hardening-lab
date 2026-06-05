@@ -1,0 +1,16 @@
+{
+  "synthetic-lab": true,
+  "description": "Synthetic clean stack sample for offline defensive review.",
+  "account_id": "123456789012",
+  "Resources": {
+    "CleanStorageBucket": {
+      "Type": "Synthetic::Storage::Bucket",
+      "Properties": {
+        "Name": "lab-clean-bucket",
+        "PublicAccess": false,
+        "EncryptionEnabled": true,
+        "LoggingEnabled": true
+      }
+    }
+  }
+}

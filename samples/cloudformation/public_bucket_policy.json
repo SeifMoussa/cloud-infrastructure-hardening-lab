@@ -1,0 +1,16 @@
+{
+  "synthetic-lab": true,
+  "description": "Synthetic public bucket policy sample for offline defensive review.",
+  "account_id": "123456789012",
+  "Resources": {
+    "LabPublicBucketPolicy": {
+      "Type": "Synthetic::Storage::BucketPolicy",
+      "Properties": {
+        "Bucket": "lab-public-bucket",
+        "Principal": "public",
+        "Action": ["synthetic:GetObject"],
+        "Resource": ["lab-public-bucket/*"]
+      }
+    }
+  }
+}

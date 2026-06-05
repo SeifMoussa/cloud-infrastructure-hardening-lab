@@ -1,0 +1,12 @@
+{
+  "synthetic-lab": true,
+  "description": "Synthetic open admin port sample for offline defensive review.",
+  "account_id": "123456789012",
+  "resource": {
+    "type": "network-rule",
+    "name": "lab-security-group",
+    "protocol": "tcp",
+    "port": 22,
+    "cidr": "203.0.113.0/24"
+  }
+}

@@ -1,0 +1,19 @@
+synthetic-lab: true
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: synthetic-missing-limits
+  namespace: lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: synthetic-app
+  template:
+    metadata:
+      labels:
+        app: synthetic-app
+    spec:
+      containers:
+        - name: lab-container
+          image: lab.example.com/synthetic/app:latest

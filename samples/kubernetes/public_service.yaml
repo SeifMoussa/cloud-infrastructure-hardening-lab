@@ -1,0 +1,15 @@
+synthetic-lab: true
+apiVersion: v1
+kind: Service
+metadata:
+  name: synthetic-public-service
+  namespace: lab
+spec:
+  type: LoadBalancer
+  selector:
+    app: synthetic-app
+  ports:
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 8443

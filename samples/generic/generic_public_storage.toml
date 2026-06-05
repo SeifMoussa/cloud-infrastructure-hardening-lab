@@ -1,0 +1,11 @@
+synthetic-lab = true
+description = "Synthetic public storage sample for offline defensive review."
+account_id = "123456789012"
+
+[resource]
+type = "storage"
+name = "lab-public-bucket"
+owner = "service-user"
+domain = "lab.example.com"
+public_access = true
+encryption_enabled = true

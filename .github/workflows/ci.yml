@@ -1,0 +1,92 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install project
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Run lint
+        run: python -m ruff check .
+
+      - name: Run format check
+        run: python -m ruff format --check .
+
+      - name: Run tests with coverage
+        run: python -m pytest --cov=cloud_hardening_lab --cov-report=term-missing --cov-report=xml --cov-fail-under=90
+
+      - name: Upload coverage artifact
+        if: ${{ hashFiles('coverage.xml') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-xml
+          path: coverage.xml
+
+  docs:
+    name: Docs Safety Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install project
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Run docs safety checks
+        run: python scripts/check-docs.py
+
+  cli-smoke:
+    name: CLI Smoke
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install project
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Run local offline CLI commands
+        run: |
+          python -m cloud_hardening_lab --help
+          python -m cloud_hardening_lab inventory --input samples --format json
+          python -m cloud_hardening_lab validate-samples --input samples
+          python -m cloud_hardening_lab scan --input samples --format json
+          python -m cloud_hardening_lab scan --input samples --format text --min-severity medium
+          python -m cloud_hardening_lab report --input samples --output reports/examples/ci_cloud_hardening_report.md --format markdown
+          python -m cloud_hardening_lab report --input samples --output reports/examples/ci_cloud_hardening_report.json --format json

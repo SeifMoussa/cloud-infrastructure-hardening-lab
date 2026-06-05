@@ -1,0 +1,12 @@
+synthetic-lab: true
+apiVersion: v1
+kind: Pod
+metadata:
+  name: synthetic-root-pod
+  namespace: lab
+spec:
+  containers:
+    - name: lab-container
+      image: lab.example.com/synthetic/app:latest
+      securityContext:
+        runAsUser: 0
