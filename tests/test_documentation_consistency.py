@@ -38,9 +38,9 @@ def test_readme_documents_implemented_cli_commands() -> None:
         "python -m cloud_hardening_lab scan --input samples --format text --min-severity medium",
         "python -m cloud_hardening_lab scan --input samples --format json --fail-on high",
         "python -m cloud_hardening_lab report --input samples --output "
-        "reports/examples/cloud_hardening_report.md --format markdown",
+        + "reports/examples/cloud_hardening_report.md --format markdown",
         "python -m cloud_hardening_lab report --input samples --output "
-        "reports/examples/cloud_hardening_report.json --format json",
+        + "reports/examples/cloud_hardening_report.json --format json",
     ]
 
     for command in expected_commands:

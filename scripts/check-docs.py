@@ -36,9 +36,9 @@ REQUIRED_README_COMMANDS = [
     "python -m cloud_hardening_lab scan --input samples --format json --min-severity high",
     "python -m cloud_hardening_lab scan --input samples --format json --fail-on high",
     "python -m cloud_hardening_lab report --input samples --output "
-    "reports/examples/cloud_hardening_report.md --format markdown",
+    + "reports/examples/cloud_hardening_report.md --format markdown",
     "python -m cloud_hardening_lab report --input samples --output "
-    "reports/examples/cloud_hardening_report.json --format json",
+    + "reports/examples/cloud_hardening_report.json --format json",
 ]
 
 ALLOWED_ACCOUNT_IDS = {"000000000000", "123456789012"}

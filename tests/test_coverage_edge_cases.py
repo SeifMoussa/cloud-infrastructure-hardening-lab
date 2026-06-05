@@ -5,7 +5,6 @@ from pathlib import Path
 
 import pytest
 
-import cloud_hardening_lab.loaders.text_loader as text_loader
 from cloud_hardening_lab.cli import main as cli_main
 from cloud_hardening_lab.cli import run_report, write_report_outputs
 from cloud_hardening_lab.detectors.common import find_resource_name, string_values, walk_values
@@ -13,6 +12,7 @@ from cloud_hardening_lab.detectors.engine import run_detectors
 from cloud_hardening_lab.detectors.kubernetes import detect_kubernetes_missing_resource_limits
 from cloud_hardening_lab.detectors.public_exposure import detect_public_database_exposure
 from cloud_hardening_lab.detectors.storage import detect_storage_missing_encryption, detect_storage_missing_versioning
+from cloud_hardening_lab.loaders import text_loader
 from cloud_hardening_lab.loaders.common import MAX_CONFIG_SIZE_BYTES, ConfigLoadError, read_text_file
 from cloud_hardening_lab.loaders.inventory import load_config_file
 from cloud_hardening_lab.loaders.text_loader import load_text_file

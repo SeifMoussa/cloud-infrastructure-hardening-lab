@@ -67,7 +67,7 @@ def render_markdown_report(context: ReportContext) -> str:
             "## Limitations",
             "",
             "This report is generated from synthetic local files only. It is not a production security assessment, "
-            "does not authenticate to cloud providers, and does not inspect live infrastructure.",
+            + "does not authenticate to cloud providers, and does not inspect live infrastructure.",
             "",
         ]
     )
