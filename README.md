@@ -12,6 +12,10 @@ CI/CodeQL configured but not yet GitHub-verified. The workflows exist locally an
 
 This lab simulates a small cloud security review workflow against synthetic infrastructure-as-code and configuration samples. The tool inventories local files, validates synthetic safety markers, runs deterministic misconfiguration checks, enriches findings with scores and remediation guidance, and generates Markdown or JSON reports suitable for portfolio demonstration.
 
+## Why This Lab Is Different From My Other Security Labs
+
+This project works at the cloud configuration and infrastructure-as-code layer. The packet lab inspects network captures, the host lab watches endpoint artifacts, the YARA lab matches file and log patterns, and the alert-triage lab organizes security events. Here, the input is Terraform-like text, CloudFormation, Kubernetes manifests, and generic configuration files; the output is a deterministic CSPM-style review of IAM, public exposure, storage, network, and Kubernetes hardening decisions. The useful boundary is before deployment: explain a risky configuration and a remediation direction without needing a live account.
+
 ## Target Job Relevance
 
 - Cloud Security Engineer
@@ -160,10 +164,32 @@ cloud-infrastructure-hardening-lab/
 ## Known Limitations
 
 - The detector set is intentionally small and transparent rather than broad CSPM coverage.
+- Every fixture is synthetic and local; no real customer configuration, credential, account, or production state belongs in the lab.
+- The scanner does not connect to a live AWS, Azure, GCP, or Kubernetes environment, so it cannot detect runtime drift, inherited organization policy, or controls applied outside the reviewed files.
 - Terraform-like `.tf` files are inspected as raw text, not full HCL-parsed plans or state.
-- The lab does not authenticate to live cloud accounts and cannot validate runtime drift.
 - The project does not replace production CSPM, CNAPP, Kubernetes admission control, or managed cloud security monitoring.
 - CI and CodeQL are configured locally but remain unverified on GitHub until first publication.
+
+## What I Would Improve Next
+
+I would replace the raw Terraform text checks with parsed HCL and plan support so findings can follow module values and resource relationships. I would also add explicit rule metadata for cloud provider and framework mappings, plus fixture-based tests for cross-resource cases such as a private resource made public by a separate policy. Live cloud collection would remain a separate, opt-in adapter with read-only permissions rather than being folded into the offline scanner.
+
+## How to Verify It Works
+
+Install the package, run the same lint, format, test, coverage, and documentation checks used by CI, then exercise the local sample scan:
+
+```bash
+python -m pip install -e ".[dev]"
+python -m ruff check .
+python -m ruff format --check .
+python -m pytest
+python -m pytest --cov=cloud_hardening_lab --cov-report=term-missing --cov-fail-under=90
+python scripts/check-docs.py
+python -m cloud_hardening_lab validate-samples --input samples
+python -m cloud_hardening_lab scan --input samples --format text --min-severity medium
+```
+
+These commands verify deterministic behavior against the repository's synthetic fixtures. They do not validate a live cloud environment or establish production readiness.
 
 ## License
 
