@@ -2,18 +2,18 @@
 
 This checklist tracks readiness for a future public repository release. It does not publish the repository, create a tag, or create a release by itself.
 
-## Phase Status
+## Implementation Status
 
-- [x] Phase 1 scaffold complete.
-- [x] Phase 2 synthetic samples complete.
-- [x] Phase 3 loaders/validation complete.
-- [x] Phase 4 detection engine complete.
-- [x] Phase 5 risk scoring/remediation complete.
-- [x] Phase 6 reporting complete.
-- [x] Phase 7 CLI/final UX complete.
-- [x] Phase 8 CI/CodeQL configured locally.
-- [x] Phase 9 documentation polish complete.
-- [x] Phase 10 final QA/release preparation complete.
+- [x] Scaffold complete.
+- [x] Synthetic samples complete.
+- [x] Loaders and validation complete.
+- [x] Detection engine complete.
+- [x] Risk scoring and remediation guidance complete.
+- [x] Reporting complete.
+- [x] CLI and final UX complete.
+- [x] CI and CodeQL configured locally.
+- [x] Documentation polish complete.
+- [x] Final QA and release preparation complete.
 
 ## Documentation Readiness Goals
 
@@ -21,11 +21,11 @@ This checklist tracks readiness for a future public repository release. It does 
 - [x] Safety scope is consistent across documentation.
 - [x] Detection, findings, and testing docs reflect the current implementation.
 - [x] Example reports are public-safe and generated from synthetic local samples.
-- [x] Tracking documents record Phase 9 validation honestly.
+- [x] Tracking documents record current validation honestly.
 
 ## Final Local Verification
 
-- [x] Code complete through Phase 9.
+- [x] Code complete for the current scope.
 - [x] Tests passing: 105 passed.
 - [x] Coverage passing: 97.89%.
 - [x] Coverage gate: 90%.
