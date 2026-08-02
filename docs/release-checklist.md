@@ -26,8 +26,8 @@ This checklist tracks readiness for a future public repository release. It does 
 ## Final Local Verification
 
 - [x] Code complete for the current scope.
-- [x] Tests passing: 105 passed.
-- [x] Coverage passing: 97.89%.
+- [x] Tests passing: 113 passed.
+- [x] Coverage passing: 97.97%.
 - [x] Coverage gate: 90%.
 - [x] Ruff passing.
 - [x] Docs check passing.

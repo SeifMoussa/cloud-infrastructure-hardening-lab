@@ -12,7 +12,15 @@ BANNED_TERMS = {
     "penetration testing command",
 }
 ALLOWED_ACCOUNT_IDS = {"000000000000", "123456789012"}
-ALLOWED_DOMAINS = {"example.com", "example.org", "example.net", "lab.example.com"}
+ALLOWED_DOMAINS = {
+    "example.com",
+    "example.org",
+    "example.net",
+    "lab.example.com",
+    "docs.aws.amazon.com",
+    "www.tenable.com",
+    "avd.aquasec.com",
+}
 
 
 def test_detectors_do_not_import_cloud_sdks_or_network_clients() -> None:
@@ -89,7 +97,10 @@ def test_no_live_api_urls_in_source_docs_samples_or_reports() -> None:
         *list((root / "src").rglob("*.py")),
         *list((root / "reports").rglob("*")),
     ]
-    live_url_pattern = re.compile(r"https?://(?!example\.com|example\.org|example\.net)[^\s)]+")
+    live_url_pattern = re.compile(
+        r"https?://(?!example\.com|example\.org|example\.net"
+        r"|docs\.aws\.amazon\.com|www\.tenable\.com|avd\.aquasec\.com)[^\s)]+"
+    )
 
     for path in [candidate for candidate in paths if candidate.is_file()]:
         text = path.read_text(encoding="utf-8")

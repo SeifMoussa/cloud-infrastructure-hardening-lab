@@ -36,9 +36,26 @@ All included findings come from local synthetic files only.
   "confidence_weight": 2,
   "category_weight": 3,
   "synthetic": true,
-  "title": "Wildcard action"
+  "title": "Wildcard action",
+  "cis_control_id": "1.16",
+  "cis_benchmark": "CIS AWS Foundations Benchmark v1.4.0",
+  "cis_confidence": "medium",
+  "cis_note": "See docs/compliance-mapping.md for the benchmark version and mapping caveats."
 }
 ```
+
+Rules without a verified CIS control, such as `STO-001`, carry `cis_control_id`, `cis_benchmark`, and `cis_confidence` set to `null` and a `cis_note` explaining the gap, for example:
+
+```json
+{
+  "cis_control_id": null,
+  "cis_benchmark": null,
+  "cis_confidence": null,
+  "cis_note": "Not covered by the CIS AWS Foundations Benchmark or the CIS Kubernetes Benchmark. See docs/compliance-mapping.md."
+}
+```
+
+See [`docs/compliance-mapping.md`](compliance-mapping.md) for the full rule-by-rule CIS mapping, confidence levels, and caveats.
 
 ## Current Example Findings
 

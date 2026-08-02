@@ -17,8 +17,8 @@ The project uses local automated checks to keep the scanner, reports, and docume
 
 ## Current Verified Local Baseline
 
-- 105 tests passed
-- 97.89% coverage
+- 113 tests passed
+- 97.97% coverage
 - 90% coverage gate
 - Ruff check passed
 - Ruff format check passed

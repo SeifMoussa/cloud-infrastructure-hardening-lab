@@ -14,6 +14,7 @@ REQUIRED_DOCS = [
     "docs/design.md",
     "docs/safety-scope.md",
     "docs/detection-rules.md",
+    "docs/compliance-mapping.md",
     "docs/sample-findings.md",
     "docs/testing-guide.md",
     "docs/release-checklist.md",
@@ -51,6 +52,9 @@ ALLOWED_DOMAINS = {
 ALLOWED_REAL_PROJECT_DOMAINS = {
     "github.com",
     "img.shields.io",
+    "docs.aws.amazon.com",
+    "www.tenable.com",
+    "avd.aquasec.com",
 }
 FILE_EXTENSION_WORDS = {
     "coverage.xml",
@@ -60,7 +64,7 @@ FILE_EXTENSION_WORDS = {
     "check-docs.py",
     "resources.limits",
 }
-CODE_REFERENCE_SUFFIXES = (".py", ".json", ".yaml", ".yml", ".toml", ".tf", ".md", ".xml")
+CODE_REFERENCE_SUFFIXES = (".py", ".json", ".yaml", ".yml", ".toml", ".tf", ".md", ".xml", ".html")
 
 PRIVATE_OR_RESERVED_NETWORKS = [
     ipaddress.ip_network("10.0.0.0/8"),
@@ -71,6 +75,7 @@ PRIVATE_OR_RESERVED_NETWORKS = [
     ipaddress.ip_network("192.0.2.0/24"),
     ipaddress.ip_network("198.51.100.0/24"),
     ipaddress.ip_network("203.0.113.0/24"),
+    ipaddress.ip_network("0.0.0.0/32"),
 ]
 
 AWS_ACCESS_KEY_RE = re.compile(r"\b(?:AKIA|ASIA)[0-9A-Z]{16}\b")

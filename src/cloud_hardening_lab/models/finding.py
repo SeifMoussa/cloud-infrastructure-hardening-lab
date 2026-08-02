@@ -28,6 +28,10 @@ class Finding:
     category_weight: int | None = None
     scoring_reason: str | None = None
     remediation: str | None = None
+    cis_control_id: str | None = None
+    cis_benchmark: str | None = None
+    cis_confidence: str | None = None
+    cis_note: str | None = None
 
     def __post_init__(self) -> None:
         """Enforce safe evidence length and synthetic-only findings."""
@@ -55,4 +59,8 @@ class Finding:
             "scoring_reason": self.scoring_reason,
             "synthetic": self.synthetic,
             "metadata": self.metadata or {},
+            "cis_control_id": self.cis_control_id,
+            "cis_benchmark": self.cis_benchmark,
+            "cis_confidence": self.cis_confidence,
+            "cis_note": self.cis_note,
         }
