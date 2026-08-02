@@ -4,6 +4,10 @@
     {
       "category": "public_exposure",
       "category_weight": 4,
+      "cis_benchmark": "CIS AWS Foundations Benchmark v3.0.0",
+      "cis_confidence": "high",
+      "cis_control_id": "2.1.4",
+      "cis_note": null,
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic storage resource allows public access.",
@@ -24,6 +28,10 @@
     {
       "category": "public_exposure",
       "category_weight": 4,
+      "cis_benchmark": "CIS AWS Foundations Benchmark v3.0.0",
+      "cis_confidence": "high",
+      "cis_control_id": "2.3.3",
+      "cis_note": null,
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic database sample is marked publicly accessible.",
@@ -44,6 +52,10 @@
     {
       "category": "public_exposure",
       "category_weight": 4,
+      "cis_benchmark": "CIS AWS Foundations Benchmark v3.0.0",
+      "cis_confidence": "high",
+      "cis_control_id": "2.1.4",
+      "cis_note": null,
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic storage resource allows public access.",
@@ -64,6 +76,10 @@
     {
       "category": "public_exposure",
       "category_weight": 4,
+      "cis_benchmark": "CIS AWS Foundations Benchmark v3.0.0",
+      "cis_confidence": "high",
+      "cis_control_id": "2.1.4",
+      "cis_note": null,
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic storage resource allows public access.",
@@ -84,6 +100,10 @@
     {
       "category": "iam",
       "category_weight": 3,
+      "cis_benchmark": "CIS AWS Foundations Benchmark v3.0.0",
+      "cis_confidence": "low",
+      "cis_control_id": "2.1.4",
+      "cis_note": "See docs/compliance-mapping.md for the benchmark version and mapping caveats.",
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic IAM-style principal allows broad public access.",
@@ -104,6 +124,10 @@
     {
       "category": "iam",
       "category_weight": 3,
+      "cis_benchmark": "CIS AWS Foundations Benchmark v1.4.0",
+      "cis_confidence": "medium",
+      "cis_control_id": "1.16",
+      "cis_note": "See docs/compliance-mapping.md for the benchmark version and mapping caveats.",
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic IAM-style policy uses a wildcard action.",
@@ -124,6 +148,10 @@
     {
       "category": "iam",
       "category_weight": 3,
+      "cis_benchmark": "CIS AWS Foundations Benchmark v1.4.0",
+      "cis_confidence": "medium",
+      "cis_control_id": "1.16",
+      "cis_note": "See docs/compliance-mapping.md for the benchmark version and mapping caveats.",
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic IAM-style policy applies permissions to a wildcard resource.",
@@ -144,6 +172,10 @@
     {
       "category": "iam",
       "category_weight": 3,
+      "cis_benchmark": "CIS AWS Foundations Benchmark v1.4.0",
+      "cis_confidence": "medium",
+      "cis_control_id": "1.16",
+      "cis_note": "See docs/compliance-mapping.md for the benchmark version and mapping caveats.",
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic IAM-style policy uses a wildcard action.",
@@ -164,6 +196,10 @@
     {
       "category": "iam",
       "category_weight": 3,
+      "cis_benchmark": "CIS AWS Foundations Benchmark v1.4.0",
+      "cis_confidence": "medium",
+      "cis_control_id": "1.16",
+      "cis_note": "See docs/compliance-mapping.md for the benchmark version and mapping caveats.",
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic IAM-style policy applies permissions to a wildcard resource.",
@@ -184,6 +220,10 @@
     {
       "category": "kubernetes",
       "category_weight": 1,
+      "cis_benchmark": "CIS Kubernetes Benchmark v1.8.0",
+      "cis_confidence": "medium",
+      "cis_control_id": "5.2.2",
+      "cis_note": "See docs/compliance-mapping.md for the benchmark version and mapping caveats.",
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic Kubernetes container is marked privileged.",
@@ -204,6 +244,10 @@
     {
       "category": "network",
       "category_weight": 2,
+      "cis_benchmark": "CIS AWS Foundations Benchmark v3.0.0",
+      "cis_confidence": "medium",
+      "cis_control_id": "5.2",
+      "cis_note": "See docs/compliance-mapping.md for the benchmark version and mapping caveats.",
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic network rule allows management access from a documentation CIDR.",
@@ -224,6 +268,10 @@
     {
       "category": "network",
       "category_weight": 2,
+      "cis_benchmark": "CIS AWS Foundations Benchmark v3.0.0",
+      "cis_confidence": "medium",
+      "cis_control_id": "5.2",
+      "cis_note": "See docs/compliance-mapping.md for the benchmark version and mapping caveats.",
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic network rule allows management access from a documentation CIDR.",
@@ -244,6 +292,10 @@
     {
       "category": "storage",
       "category_weight": 1,
+      "cis_benchmark": null,
+      "cis_confidence": null,
+      "cis_control_id": null,
+      "cis_note": "Not covered by the CIS AWS Foundations Benchmark or the CIS Kubernetes Benchmark. See docs/compliance-mapping.md.",
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic storage resource explicitly disables encryption.",
@@ -264,6 +316,10 @@
     {
       "category": "storage",
       "category_weight": 1,
+      "cis_benchmark": null,
+      "cis_confidence": null,
+      "cis_control_id": null,
+      "cis_note": "Not covered by the CIS AWS Foundations Benchmark or the CIS Kubernetes Benchmark. See docs/compliance-mapping.md.",
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic storage resource explicitly disables encryption.",
@@ -284,6 +340,10 @@
     {
       "category": "kubernetes",
       "category_weight": 1,
+      "cis_benchmark": null,
+      "cis_confidence": null,
+      "cis_control_id": null,
+      "cis_note": "Not covered by the CIS AWS Foundations Benchmark or the CIS Kubernetes Benchmark. See docs/compliance-mapping.md.",
       "confidence": "high",
       "confidence_weight": 2,
       "description": "A synthetic Kubernetes Deployment container does not define resource limits.",
@@ -302,7 +362,7 @@
       "title": "Missing resource limits"
     }
   ],
-  "generated_at": "2026-06-05T13:41:33Z",
+  "generated_at": "2026-08-02T19:38:32Z",
   "input_path": "samples",
   "report_metadata": {
     "offline": true,

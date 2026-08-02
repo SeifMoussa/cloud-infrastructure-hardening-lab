@@ -48,8 +48,8 @@ def render_markdown_report(context: ReportContext) -> str:
             "",
             "## Detailed Findings",
             "",
-            "| Rule ID | Severity | Score | Category | File Path | Title | Evidence | Remediation |",
-            "| --- | --- | ---: | --- | --- | --- | --- | --- |",
+            "| Rule ID | Severity | Score | Category | File Path | Title | Evidence | Remediation | CIS Control |",
+            "| --- | --- | ---: | --- | --- | --- | --- | --- | --- |",
         ]
     )
     lines.extend(_finding_row(finding) for finding in context.findings)
@@ -84,8 +84,16 @@ def _finding_row(finding: Finding) -> str:
     return (
         f"| `{finding.rule_id}` | `{finding.severity}` | {finding.score} | `{finding.category}` | "
         f"`{finding.file_path}` | {escape_markdown(finding.title)} | "
-        f"{escape_markdown(finding.evidence)} | {escape_markdown(finding.remediation or finding.recommendation)} |"
+        f"{escape_markdown(finding.evidence)} | {escape_markdown(finding.remediation or finding.recommendation)} | "
+        f"{escape_markdown(_cis_control_display(finding))} |"
     )
+
+
+def _cis_control_display(finding: Finding) -> str:
+    if not finding.cis_control_id:
+        return "Not covered"
+    confidence = f", {finding.cis_confidence} confidence" if finding.cis_confidence else ""
+    return f"{finding.cis_control_id} ({finding.cis_benchmark}{confidence})"
 
 
 def _remediation_lines(findings: list[Finding]) -> list[str]:

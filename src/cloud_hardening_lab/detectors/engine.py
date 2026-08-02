@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from pathlib import Path
 
+from cloud_hardening_lab.compliance import apply_cis_mapping
 from cloud_hardening_lab.detectors.iam import (
     detect_iam_public_principal,
     detect_iam_wildcard_action,
@@ -55,7 +56,7 @@ def run_detectors(config_files: list[Path], recursive: bool = True) -> list[Find
                 continue
             for detector in detectors:
                 findings.extend(detector(config))
-    return sort_findings(apply_scoring(apply_remediation(findings)))
+    return sort_findings(apply_cis_mapping(apply_scoring(apply_remediation(findings))))
 
 
 def sort_findings(findings: list[Finding]) -> list[Finding]:

@@ -12,18 +12,20 @@ The current detector set is intentionally small, readable, and interview-friendl
 
 ## Implemented Rules
 
-| Rule ID | Category | Title | Severity | What It Flags |
-| --- | --- | --- | --- | --- |
-| `IAM-001` | `iam` | Wildcard action | `high` | IAM-style action lists that use broad wildcard permissions |
-| `IAM-002` | `iam` | Wildcard resource | `high` | IAM-style policies that target `*` resources |
-| `IAM-003` | `iam` | Public principal | `high` | Public access principals in synthetic policy examples |
-| `EXP-001` | `public_exposure` | Public storage exposure | `high` | Synthetic storage resources exposed publicly |
-| `EXP-002` | `public_exposure` | Public database exposure | `high` | Synthetic databases marked publicly accessible |
-| `NET-001` | `network` | Public management ingress | `medium` | Management ports exposed to a documentation CIDR |
-| `STO-001` | `storage` | Missing storage encryption | `medium` | Synthetic storage objects with encryption disabled |
-| `STO-002` | `storage` | Missing storage versioning | `low` | Synthetic storage examples without versioning enabled |
-| `K8S-001` | `kubernetes` | Privileged container | `high` | Containers set to privileged mode |
-| `K8S-002` | `kubernetes` | Missing resource limits | `low` | Kubernetes containers without defined CPU or memory limits |
+| Rule ID | Category | Title | Severity | What It Flags | CIS Control |
+| --- | --- | --- | --- | --- | --- |
+| `IAM-001` | `iam` | Wildcard action | `high` | IAM-style action lists that use broad wildcard permissions | `1.16` (CIS AWS Foundations Benchmark v1.4.0) |
+| `IAM-002` | `iam` | Wildcard resource | `high` | IAM-style policies that target `*` resources | `1.16` (CIS AWS Foundations Benchmark v1.4.0) |
+| `IAM-003` | `iam` | Public principal | `high` | Public access principals in synthetic policy examples | `2.1.4` (CIS AWS Foundations Benchmark v3.0.0) |
+| `EXP-001` | `public_exposure` | Public storage exposure | `high` | Synthetic storage resources exposed publicly | `2.1.4` (CIS AWS Foundations Benchmark v3.0.0) |
+| `EXP-002` | `public_exposure` | Public database exposure | `high` | Synthetic databases marked publicly accessible | `2.3.3` (CIS AWS Foundations Benchmark v3.0.0) |
+| `NET-001` | `network` | Public management ingress | `medium` | Management ports exposed to a documentation CIDR | `5.2` (CIS AWS Foundations Benchmark v3.0.0) |
+| `STO-001` | `storage` | Missing storage encryption | `medium` | Synthetic storage objects with encryption disabled | Not covered |
+| `STO-002` | `storage` | Missing storage versioning | `low` | Synthetic storage examples without versioning enabled | Not covered |
+| `K8S-001` | `kubernetes` | Privileged container | `high` | Containers set to privileged mode | `5.2.2` (CIS Kubernetes Benchmark v1.8.0) |
+| `K8S-002` | `kubernetes` | Missing resource limits | `low` | Kubernetes containers without defined CPU or memory limits | Not covered |
+
+See [`docs/compliance-mapping.md`](compliance-mapping.md) for the confidence level, source citations, and specific caveat behind each CIS control mapping above.
 
 ## Detection Behavior
 
@@ -57,6 +59,7 @@ Each finding includes:
 - Deterministic score
 - Scoring reason
 - Defensive remediation guidance
+- CIS control mapping (control ID, benchmark, and confidence, or an explicit "not covered" note)
 
 ## Known Detection Limitations
 

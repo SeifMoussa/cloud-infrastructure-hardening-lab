@@ -2,8 +2,8 @@
 
 ## Current Verified Local Baseline
 
-- 105 tests passed
-- 97.89% coverage
+- 113 tests passed
+- 97.97% coverage
 - 90% coverage gate
 - Ruff check passed
 - Ruff format check passed
@@ -21,6 +21,7 @@ CI/CodeQL configured but not yet GitHub-verified.
 | `tests/test_cli_inventory_and_validation.py` | Pass | Inventory and validation CLI tests. |
 | `tests/test_cli_scan.py` | Pass | Scan JSON/text and invalid input tests. |
 | `tests/test_cli_options_and_error_handling.py` | Pass | CLI UX, filtering, fail-on, report negative, and recursion tests. |
+| `tests/test_cis_mapping.py` | Pass | CIS control mapping table, unmapped-rule handling, and report field tests. |
 | `tests/test_coverage_edge_cases.py` | Pass | Edge-case loader, validation, reporting, and CLI branch coverage tests. |
 | `tests/test_detectors.py` | Pass | Finding model, detector rule, ordering, and clean sample tests. |
 | `tests/test_documentation_consistency.py` | Pass | Docs safety, README command, and CI/CodeQL honesty tests. |
@@ -53,6 +54,20 @@ This pass focused on documentation polish, example report review, and public por
 | `python -m cloud_hardening_lab scan --input samples --format json --fail-on high` | Pass | Intentional exit code 1 because high findings are present; JSON output remained stable. |
 | `python -m cloud_hardening_lab report --input samples --output reports/examples/cloud_hardening_report.md --format markdown` | Pass | Regenerated the public-safe Markdown example report from synthetic local samples. |
 | `python -m cloud_hardening_lab report --input samples --output reports/examples/cloud_hardening_report.json --format json` | Pass | Regenerated the public-safe JSON example report from synthetic local samples. |
+
+## CIS Control Mapping Validation
+
+This pass added CIS AWS Foundations Benchmark and CIS Kubernetes Benchmark control mapping per detector rule, including the three rules with no verified CIS control. The commands below were rerun after the mapping module, `Finding` fields, and report changes landed.
+
+| Command | Status | Notes |
+| --- | --- | --- |
+| `python -m pytest` | Pass | 113 tests passed. |
+| `python -m pytest --cov=cloud_hardening_lab --cov-report=term-missing --cov-fail-under=90` | Pass | 113 tests passed with 97.97% total coverage against the 90% gate. |
+| `python -m ruff check .` | Pass | All checks passed. |
+| `python -m ruff format --check .` | Pass | 53 files already formatted. |
+| `python scripts/check-docs.py` | Pass | Documentation and sample safety checks passed. |
+| `python -m cloud_hardening_lab report --input samples --output reports/examples/cloud_hardening_report.md --format markdown` | Pass | Regenerated the example Markdown report with the new CIS Control column. |
+| `python -m cloud_hardening_lab report --input samples --output reports/examples/cloud_hardening_report.json --format json` | Pass | Regenerated the example JSON report with `cis_control_id`, `cis_benchmark`, `cis_confidence`, and `cis_note` fields. |
 
 ## Documentation Notes
 

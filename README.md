@@ -28,6 +28,7 @@ This project works at the cloud configuration and infrastructure-as-code layer. 
 - Building a local defensive scanner for synthetic infrastructure configuration data
 - Translating cloud hardening concepts into deterministic detection logic
 - Representing findings with severity, score, confidence, and remediation metadata
+- Mapping detector rules to CIS Benchmark controls, with honest confidence levels and an explicit "not covered" note where no verified control exists
 - Producing recruiter-readable Markdown reports and machine-readable JSON output
 - Enforcing documentation honesty, sample safety, and local quality gates with tests and linting
 
@@ -37,6 +38,7 @@ This project works at the cloud configuration and infrastructure-as-code layer. 
 - Loaders and validation logic under `src/cloud_hardening_lab/loaders/`, `validation.py`, and `safety.py`
 - Detectors under `src/cloud_hardening_lab/detectors/`
 - Scoring and remediation logic under `src/cloud_hardening_lab/scoring/` and `remediation/`
+- CIS control mapping under `src/cloud_hardening_lab/compliance/`
 - Markdown and JSON reports under `reports/examples/`
 - Automated tests under `tests/`
 - Documentation consistency checks under `scripts/check-docs.py`
@@ -48,6 +50,7 @@ This project works at the cloud configuration and infrastructure-as-code layer. 
 - Detection rules for IAM-style risks, public exposure, storage hardening, network exposure, and Kubernetes hardening
 - Deterministic scoring with transparent score ranges and scoring reasons
 - Safe remediation guidance focused on hardening intent rather than provider-specific live commands
+- CIS AWS Foundations Benchmark and CIS Kubernetes Benchmark control mapping per rule, with confidence levels and source citations in [`docs/compliance-mapping.md`](docs/compliance-mapping.md)
 - CLI filtering with `--min-severity`
 - Local quality-gate behavior with `--fail-on`
 - Markdown and JSON report generation for public portfolio examples
@@ -119,8 +122,8 @@ python -m cloud_hardening_lab report --input samples --output reports/examples/c
 
 ## Quality Status
 
-- 105 tests passed
-- 97.89% coverage
+- 113 tests passed
+- 97.97% coverage
 - 90% coverage gate
 - Ruff passed
 - docs check passed
