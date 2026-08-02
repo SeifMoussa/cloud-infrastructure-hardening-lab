@@ -1,4 +1,4 @@
-"""Config file model used by Phase 3 loaders."""
+"""Config file model used by the local loaders."""
 
 from __future__ import annotations
 
