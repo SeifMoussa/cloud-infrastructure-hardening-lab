@@ -18,14 +18,14 @@ CI/CodeQL configured but not yet GitHub-verified.
 | `tests/test_package.py` | Pass | Package version import test. |
 | `tests/test_cli.py` | Pass | CLI help test. |
 | `tests/test_cli_inprocess.py` | Pass | In-process CLI dispatch, filtering, report, and error-path tests. |
-| `tests/test_cli_phase3.py` | Pass | Inventory and validation CLI tests. |
+| `tests/test_cli_inventory_and_validation.py` | Pass | Inventory and validation CLI tests. |
 | `tests/test_cli_scan.py` | Pass | Scan JSON/text and invalid input tests. |
-| `tests/test_cli_phase7.py` | Pass | CLI UX, filtering, fail-on, report negative, and recursion tests. |
+| `tests/test_cli_options_and_error_handling.py` | Pass | CLI UX, filtering, fail-on, report negative, and recursion tests. |
 | `tests/test_coverage_edge_cases.py` | Pass | Edge-case loader, validation, reporting, and CLI branch coverage tests. |
 | `tests/test_detectors.py` | Pass | Finding model, detector rule, ordering, and clean sample tests. |
 | `tests/test_documentation_consistency.py` | Pass | Docs safety, README command, and CI/CodeQL honesty tests. |
 | `tests/test_loaders.py` | Pass | Loader success/failure and inventory tests. |
-| `tests/test_phase4_safety.py` | Pass | SDK import, content safety, domain, and offline-scope tests. |
+| `tests/test_source_and_sample_safety.py` | Pass | SDK import, content safety, domain, and offline-scope tests. |
 | `tests/test_reporting.py` | Pass | Markdown/JSON report generator and report CLI tests. |
 | `tests/test_scoring_remediation.py` | Pass | Scoring, summary, sorting, and remediation tests. |
 | `tests/test_safety.py` | Pass | Synthetic sample safety tests. |
