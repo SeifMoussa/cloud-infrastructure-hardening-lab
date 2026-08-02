@@ -18,7 +18,6 @@ REQUIRED_DOCS = [
     "docs/testing-guide.md",
     "docs/release-checklist.md",
     "TESTING_REPORT.md",
-    "PROJECT_COMPLETION_CHECKLIST.md",
     "CHANGELOG.md",
 ]
 

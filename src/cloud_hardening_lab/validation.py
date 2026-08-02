@@ -1,4 +1,4 @@
-"""Validation helpers for Phase 3 loaded configs and sample trees."""
+"""Validation helpers for loaded configs and sample trees."""
 
 from __future__ import annotations
 

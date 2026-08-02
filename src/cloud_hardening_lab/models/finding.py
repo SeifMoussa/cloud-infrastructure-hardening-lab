@@ -8,7 +8,7 @@ from typing import Any
 
 @dataclass(frozen=True)
 class Finding:
-    """Normalized security finding produced by Phase 4 detectors."""
+    """Normalized security finding produced by the detector package."""
 
     rule_id: str
     title: str

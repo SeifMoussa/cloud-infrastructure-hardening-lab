@@ -1,4 +1,4 @@
-"""Defensive remediation guidance for Phase 4 rule IDs."""
+"""Defensive remediation guidance keyed by detector rule ID."""
 
 from __future__ import annotations
 

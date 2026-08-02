@@ -32,9 +32,9 @@ CI/CodeQL configured but not yet GitHub-verified.
 | `tests/test_validation.py` | Pass | Loaded config and sample tree validation tests. |
 | `tests/test_workflows.py` | Pass | Local CI, CodeQL, and Dependabot workflow configuration tests. |
 
-## Phase 9 Documentation Validation
+## Documentation Validation
 
-Phase 9 focused on documentation polish, example report review, and public portfolio readiness for a defensive-only, offline-only lab. The commands below were rerun after the documentation rewrite and report regeneration.
+This pass focused on documentation polish, example report review, and public portfolio readiness for a defensive-only, offline-only lab. The commands below were rerun after the documentation rewrite and report regeneration.
 
 | Command | Status | Notes |
 | --- | --- | --- |
@@ -54,15 +54,15 @@ Phase 9 focused on documentation polish, example report review, and public portf
 | `python -m cloud_hardening_lab report --input samples --output reports/examples/cloud_hardening_report.md --format markdown` | Pass | Regenerated the public-safe Markdown example report from synthetic local samples. |
 | `python -m cloud_hardening_lab report --input samples --output reports/examples/cloud_hardening_report.json --format json` | Pass | Regenerated the public-safe JSON example report from synthetic local samples. |
 
-## Phase 9 Notes
+## Documentation Notes
 
 - Documentation language was normalized to match the repo safety tests and avoid banned offensive terms.
 - Example reports remain synthetic-only, offline-only, and suitable for public GitHub exposure.
 - GitHub Actions and CodeQL remain unverified until the first actual GitHub run.
 
-## Phase 10 Release-Prep Notes
+## Release-Prep Notes
 
-- Final local QA was rerun before release preparation artifacts were written.
-- `RELEASE.md` was added with publishing commands, post-push checks, release-plan notes, and portfolio copy.
+- Final local QA was rerun before release preparation notes were written.
+- `docs/release-checklist.md` tracks publishing commands, post-push checks, and release-plan notes.
 - Repository metadata, future badge paths, and first-push caveats were documented without claiming GitHub execution success.
 - Release preparation does not publish the repository, create a tag, or create a release.

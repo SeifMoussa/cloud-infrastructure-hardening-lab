@@ -157,7 +157,6 @@ cloud-infrastructure-hardening-lab/
 |-- tests/
 |-- README.md
 |-- TESTING_REPORT.md
-|-- PROJECT_COMPLETION_CHECKLIST.md
 `-- CHANGELOG.md
 ```
 

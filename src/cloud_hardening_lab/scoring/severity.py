@@ -1,4 +1,4 @@
-"""Severity constants for deterministic Phase 5 scoring."""
+"""Severity constants for deterministic scoring."""
 
 SEVERITY_RANGES = {
     "critical": (90, 100),
